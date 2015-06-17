@@ -1,4 +1,4 @@
-package com.jerseydemo.vo;
+package com.hellojersery.vo;
 
 import java.util.List;
 

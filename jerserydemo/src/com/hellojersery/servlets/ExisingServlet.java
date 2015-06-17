@@ -1,4 +1,4 @@
-package com.jerseydemo.servlets;
+package com.hellojersery.servlets;
 
 import java.io.IOException;
 

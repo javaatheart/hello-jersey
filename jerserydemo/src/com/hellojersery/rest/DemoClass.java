@@ -7,8 +7,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -23,7 +25,7 @@ public class DemoClass {
 	@POST
 	@Path("/sayHello")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_XML})
+	@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_XML,MediaType.TEXT_HTML})
 	public Response sayHello(@Context HttpServletRequest req) throws Exception {
 
 		final List<String> demoList = new ArrayList<String>();
@@ -39,7 +41,18 @@ public class DemoClass {
 		emp1.setFirstName("First Name");
 		emp1.setLastName("Last Name");
 		emp1.setDeptList(demoList);
-		// Change what ever you want to send here as JSON.
+
 		return Response.status(Status.OK).entity(emp1).build();
 	}
+
+	@GET
+	@Path("/sayHelloPathParam/{name}/{lastName}")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_HTML})
+	@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_XML,MediaType.TEXT_HTML})
+	public Response sayHello2(@Context HttpServletRequest req, @PathParam ("name") String name, @PathParam ("lastName") String lastName) throws Exception {
+
+		return Response.status(Status.OK).entity("Hello " + name + " "  + lastName).build();
+	}
+
+
 }

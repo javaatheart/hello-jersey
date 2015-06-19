@@ -7,7 +7,6 @@
 <title></title>
 </head>
 <body>
-Existing servlet and JSPs....
-
+Some JSP that is redirected from Servlet Demo
 </body>
 </html>

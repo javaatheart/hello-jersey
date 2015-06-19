@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Welcome file
+Welcome file index.jsp
 
 </body>
 </html>
